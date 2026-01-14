@@ -1,0 +1,57 @@
+
+  Run this PowerShell script on the Windows machine to gather everything:
+
+  $outDir = "C:\billing_evidence"
+  New-Item -ItemType Directory -Force -Path $outDir
+
+  # 1. Windows logon/logoff events (Aug-Oct 2025)
+  $startDate = [DateTime]"2025-08-01"
+  $endDate = [DateTime]"2026-01-15"
+
+  Get-WinEvent -FilterHashtable @{
+      LogName='Security'
+      ID=4624,4634,4648
+      StartTime=$startDate
+      EndTime=$endDate
+  } -ErrorAction SilentlyContinue |
+  Select-Object TimeCreated, Id, Message |
+  Export-Csv "$outDir\security_logons.csv" -NoTypeInformation
+
+  # 2. System startup/shutdown
+  Get-WinEvent -FilterHashtable @{
+      LogName='System'
+      ID=6005,6006,6008,6009,1074
+      StartTime=$startDate
+      EndTime=$endDate
+  } -ErrorAction SilentlyContinue |
+  Select-Object TimeCreated, Id, Message |
+  Export-Csv "$outDir\system_uptime.csv" -NoTypeInformation
+
+  # 3. RDP sessions
+  Get-WinEvent -LogName "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational" -ErrorAction SilentlyContinue |
+  Where-Object { $_.TimeCreated -ge $startDate -and $_.TimeCreated -le $endDate } |
+  Select-Object TimeCreated, Id, Message |
+  Export-Csv "$outDir\rdp_sessions.csv" -NoTypeInformation
+
+  # 4. Copy FortiClient logs
+  Copy-Item "$env:LOCALAPPDATA\FortiClient\logs\*" "$outDir\forticlient\" -Recurse -ErrorAction SilentlyContinue
+  Copy-Item "$env:ProgramData\FortiClient\logs\*" "$outDir\forticlient_programdata\" -Recurse -ErrorAction SilentlyContinue
+
+  # 5. Copy Tailscale logs
+  Copy-Item "$env:LOCALAPPDATA\Tailscale\*.log" "$outDir\tailscale\" -Recurse -ErrorAction SilentlyContinue
+
+  # 6. PowerShell history
+  Copy-Item "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt" "$outDir\" -ErrorAction SilentlyContinue
+
+  # 7. Recent files list with timestamps
+  Get-ChildItem "$env:APPDATA\Microsoft\Windows\Recent" -File |
+  Select-Object Name, LastWriteTime, CreationTime |
+  Export-Csv "$outDir\recent_files.csv" -NoTypeInformation
+
+  # 8. Prefetch analysis (requires admin)
+  Get-ChildItem "C:\Windows\Prefetch\*.pf" -ErrorAction SilentlyContinue |
+  Select-Object Name, LastWriteTime, CreationTime |
+  Export-Csv "$outDir\prefetch_apps.csv" -NoTypeInformation
+
+  Write-Host "Evidence exported to $outDir"
+  Write-Host "Copy this folder to your Mac for analysis"
