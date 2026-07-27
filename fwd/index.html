@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+    <title>Make a home link</title>
+    <link rel="stylesheet" href="/fwd/styles.css">
+</head>
+<body>
+    <main>
+        <p class="eyebrow">Clutch Digital · Home link</p>
+        <h1>Make it clickable.</h1>
+        <p class="lede">Paste a Legion, MacBook, or Mac mini LAN URL. This creates a WhatsApp-friendly link that still opens the service directly on the home network.</p>
+
+        <form data-generator>
+            <label for="local-url">Local URL</label>
+            <input
+                id="local-url"
+                data-local-url
+                type="url"
+                inputmode="url"
+                autocomplete="off"
+                autocapitalize="none"
+                spellcheck="false"
+                placeholder="http://192.168.68.52:18080/car-accident-repair/"
+                required
+            >
+            <div class="actions">
+                <button type="submit">Make link</button>
+            </div>
+            <p class="error" data-error aria-live="polite"></p>
+        </form>
+
+        <section class="result" data-result hidden>
+            <a data-result-link href="#"></a>
+            <div class="actions">
+                <button class="secondary" data-copy type="button">Copy WhatsApp link</button>
+            </div>
+        </section>
+
+        <p class="notes">The recipient must be connected to the Deco home Wi-Fi. Nothing is exposed to the public internet.</p>
+    </main>
+    <script type="module" src="/fwd/generator.mjs"></script>
+</body>
+</html>
