@@ -34,11 +34,13 @@ const MACHINE_BY_HOST = new Map(
 );
 
 export function validatePort(portText) {
-  if (!/^[1-9]\d{0,4}$/.test(portText)) {
+  const trimmedPort = portText.trim();
+
+  if (!/^[1-9]\d{0,4}$/.test(trimmedPort)) {
     throw new Error("The local URL needs a valid port.");
   }
 
-  const port = Number(portText);
+  const port = Number(trimmedPort);
   if (port > 65535) {
     throw new Error("The local URL needs a valid port.");
   }
@@ -54,21 +56,21 @@ export function buildLocalTarget(machineKey, portText, pathText = "", queryText 
 
   const port = validatePort(portText);
   const target = new URL(`http://${machine.address}:${port}/`);
-  target.pathname = `/${pathText.replace(/^\/+/, "")}`;
+  target.pathname = `/${pathText.trim().replace(/^\/+/, "")}`;
   target.search = queryText.replace(/^\?/, "");
   return target.href;
 }
 
 export function buildShareLink(origin, machineKey, portText, pathText = "", queryText = "") {
-  validatePort(portText);
+  const port = validatePort(portText);
   if (!MACHINES[machineKey]) {
     throw new Error("That machine is not supported.");
   }
 
   const share = new URL(`/fwd/${machineKey}/`, origin);
-  share.searchParams.set("port", portText);
+  share.searchParams.set("port", String(port));
 
-  const path = pathText.replace(/^\/+/, "");
+  const path = pathText.trim().replace(/^\/+/, "");
   if (path) {
     share.searchParams.set("path", path);
   }
@@ -77,6 +79,8 @@ export function buildShareLink(origin, machineKey, portText, pathText = "", quer
   if (query) {
     share.searchParams.set("query", query);
   }
+
+  share.searchParams.set("v", "2");
 
   return share.href;
 }
