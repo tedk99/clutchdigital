@@ -1,4 +1,4 @@
-import { MACHINES, buildLocalTarget } from "/fwd/links.mjs?v=3";
+import { MACHINES, buildLocalTarget } from "/fwd/links.mjs?v=4";
 
 const machineKey = document.body.dataset.machine;
 const machine = MACHINES[machineKey];
@@ -26,6 +26,7 @@ if (!machine) {
       params.get("port") || "",
       params.get("path") || "",
       params.get("query") || "",
+      params.get("scheme") || "http",
     );
 
     document.title = `Opening ${machine.label}`;

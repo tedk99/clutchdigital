@@ -35,7 +35,7 @@ test("preserves an encoded destination query string", () => {
 test("builds a WhatsApp-friendly share link", () => {
   assert.equal(
     buildShareLink(ORIGIN, "legion", "18080", "/car-accident-repair/"),
-    "https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair%2F&v=3",
+    "https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair%2F&v=4",
   );
 });
 
@@ -51,7 +51,7 @@ test("trims whitespace from ports and paths", () => {
       " 18080 ",
       " car-accident-repair/ ",
     ),
-    "https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair%2F&v=3",
+    "https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair%2F&v=4",
   );
 });
 
@@ -61,7 +61,7 @@ test("converts raw LAN URLs for all supported machines", () => {
       ORIGIN,
       "http://192.168.68.52:18080/car-accident-repair/",
     ),
-    "https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair%2F&v=3",
+    "https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair%2F&v=4",
   );
   assert.match(
     convertLocalUrl(ORIGIN, "http://192.168.68.50:4747/explore"),
@@ -70,6 +70,17 @@ test("converts raw LAN URLs for all supported machines", () => {
   assert.match(
     convertLocalUrl(ORIGIN, "http://study.local:8788/today"),
     /\/fwd\/macmini\/\?port=8788/,
+  );
+});
+
+test("preserves https destinations", () => {
+  assert.equal(
+    convertLocalUrl(ORIGIN, "https://192.168.68.67:8443/dashboard"),
+    "https://clutchdigital.co.uk/fwd/macmini/?port=8443&path=dashboard&scheme=https&v=4",
+  );
+  assert.equal(
+    buildLocalTarget("macmini", "8443", "dashboard", "", "https"),
+    "https://192.168.68.67:8443/dashboard",
   );
 });
 

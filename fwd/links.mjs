@@ -48,21 +48,44 @@ export function validatePort(portText) {
   return port;
 }
 
-export function buildLocalTarget(machineKey, portText, pathText = "", queryText = "") {
+function validateScheme(schemeText) {
+  const scheme = schemeText.trim().replace(/:$/, "").toLowerCase();
+  if (scheme !== "http" && scheme !== "https") {
+    throw new Error("The local URL must start with http:// or https://.");
+  }
+  return scheme;
+}
+
+export function buildLocalTarget(
+  machineKey,
+  portText,
+  pathText = "",
+  queryText = "",
+  schemeText = "http",
+) {
   const machine = MACHINES[machineKey];
   if (!machine) {
     throw new Error("That machine is not supported.");
   }
 
   const port = validatePort(portText);
-  const target = new URL(`http://${machine.address}:${port}/`);
+  const scheme = validateScheme(schemeText);
+  const target = new URL(`${scheme}://${machine.address}:${port}/`);
   target.pathname = `/${pathText.trim().replace(/^\/+/, "")}`;
   target.search = queryText.replace(/^\?/, "");
   return target.href;
 }
 
-export function buildShareLink(origin, machineKey, portText, pathText = "", queryText = "") {
+export function buildShareLink(
+  origin,
+  machineKey,
+  portText,
+  pathText = "",
+  queryText = "",
+  schemeText = "http",
+) {
   const port = validatePort(portText);
+  const scheme = validateScheme(schemeText);
   if (!MACHINES[machineKey]) {
     throw new Error("That machine is not supported.");
   }
@@ -80,7 +103,11 @@ export function buildShareLink(origin, machineKey, portText, pathText = "", quer
     share.searchParams.set("query", query);
   }
 
-  share.searchParams.set("v", "3");
+  if (scheme === "https") {
+    share.searchParams.set("scheme", scheme);
+  }
+
+  share.searchParams.set("v", "4");
 
   return share.href;
 }
@@ -93,8 +120,8 @@ export function convertLocalUrl(origin, input) {
     throw new Error("Paste the complete local URL, including http://.");
   }
 
-  if (local.protocol !== "http:") {
-    throw new Error("This forwarder currently supports local http:// links.");
+  if (local.protocol !== "http:" && local.protocol !== "https:") {
+    throw new Error("The local URL must start with http:// or https://.");
   }
 
   const machineKey = MACHINE_BY_HOST.get(local.hostname.toLowerCase());
@@ -102,12 +129,14 @@ export function convertLocalUrl(origin, input) {
     throw new Error("That URL is not on Legion, the MacBook, or the Mac mini.");
   }
 
-  const port = local.port || "80";
+  const port =
+    local.port || (local.protocol === "https:" ? "443" : "80");
   return buildShareLink(
     origin,
     machineKey,
     port,
     local.pathname,
     local.search,
+    local.protocol,
   );
 }

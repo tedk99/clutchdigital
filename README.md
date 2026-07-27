@@ -18,7 +18,7 @@ Static GitHub Pages site for `clutchdigital.co.uk`.
 Example:
 
 ```text
-https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair&v=3
+https://clutchdigital.co.uk/fwd/legion/?port=18080&path=car-accident-repair&v=4
 ```
 
 The public page redirects the browser to the LAN URL. The recipient must be
