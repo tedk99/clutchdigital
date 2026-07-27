@@ -80,7 +80,7 @@ export function buildShareLink(origin, machineKey, portText, pathText = "", quer
     share.searchParams.set("query", query);
   }
 
-  share.searchParams.set("v", "2");
+  share.searchParams.set("v", "3");
 
   return share.href;
 }

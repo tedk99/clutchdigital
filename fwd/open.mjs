@@ -1,4 +1,4 @@
-import { MACHINES, buildLocalTarget } from "/fwd/links.mjs?v=2";
+import { MACHINES, buildLocalTarget } from "/fwd/links.mjs?v=3";
 
 const machineKey = document.body.dataset.machine;
 const machine = MACHINES[machineKey];

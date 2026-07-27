@@ -1,4 +1,4 @@
-import { convertLocalUrl } from "/fwd/links.mjs?v=2";
+import { convertLocalUrl } from "/fwd/links.mjs?v=3";
 
 const form = document.querySelector("[data-generator]");
 const input = document.querySelector("[data-local-url]");
