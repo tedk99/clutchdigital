@@ -1,0 +1,238 @@
+- generic [active] [ref=f13e1]:
+  - generic [ref=f13e398]:
+    - generic [ref=f13e399]: Saved tailnet policy file
+    - button [ref=f13e401] [cursor=pointer]
+  - generic [ref=f13e2]:
+    - generic [ref=f13e7]:
+      - banner [ref=f13e9]:
+        - generic [ref=f13e10]:
+          - link "tedk81@gmail.com’s admin console home" [ref=f13e11] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f13e22]: tedk81@gmail.com
+          - generic [ref=f13e23]: Free
+        - navigation "External links" [ref=f13e25]:
+          - button "Help menu" [ref=f13e26] [cursor=pointer]
+          - button "User menu…" [ref=f13e31] [cursor=pointer]
+      - navigation [ref=f13e36]:
+        - link "Machines" [ref=f13e37] [cursor=pointer]:
+          - /url: /admin/machines
+        - link "Apps" [ref=f13e43] [cursor=pointer]:
+          - /url: /admin/apps
+        - link "Services" [ref=f13e50] [cursor=pointer]:
+          - /url: /admin/services
+        - link "Users" [ref=f13e60] [cursor=pointer]:
+          - /url: /admin/users
+        - link "Access controls" [ref=f13e68] [cursor=pointer]:
+          - /url: /admin/acls
+        - link "Logs" [ref=f13e74] [cursor=pointer]:
+          - /url: /admin/logs
+        - link "DNS" [ref=f13e79] [cursor=pointer]:
+          - /url: /admin/dns
+        - link "Settings" [ref=f13e85] [cursor=pointer]:
+          - /url: /admin/settings
+        - link "Resource hub" [ref=f13e91] [cursor=pointer]:
+          - /url: /admin/resource-hub
+    - main [ref=f13e96]:
+      - generic [ref=f13e98]:
+        - generic [ref=f13e100]:
+          - generic [ref=f13e101]:
+            - heading "Access controls" [level=1] [ref=f13e103]
+            - tablist [ref=f13e107]:
+              - tab "Visual editor" [ref=f13e108] [cursor=pointer]
+              - tab "JSON editor" [selected] [ref=f13e109]
+          - paragraph [ref=f13e110]:
+            - text: Control who and which devices are allowed to connect in your network.
+            - link "Read documentation about Access controls" [ref=f13e111] [cursor=pointer]:
+              - /url: https://tailscale.com/kb/1337/policy-syntax
+              - text: Learn more
+        - generic [ref=f13e112]:
+          - generic [ref=f13e113]:
+            - tab "Edit file" [ref=f13e114] [cursor=pointer]
+            - tab "Preview changes" [ref=f13e119] [cursor=pointer]
+            - tab "Preview rules" [ref=f13e124] [cursor=pointer]
+          - generic [ref=f13e129]:
+            - generic [ref=f13e131]:
+              - textbox [ref=f13e132]
+              - generic [ref=f13e140]:
+                - generic [ref=f13e406]:
+                  - generic [ref=f13e407]: "1"
+                  - text: // Access policy for the tedk81 tailnet.
+                - generic [ref=f13e408]:
+                  - generic [ref=f13e409]: "2"
+                  - text: //
+                - generic [ref=f13e410]:
+                  - generic [ref=f13e411]: "3"
+                  - text: // Owner keeps unrestricted access. group:household is scoped to the two media
+                - generic [ref=f13e412]:
+                  - generic [ref=f13e413]: "4"
+                  - text: // servers only, which excludes the vpn-gateway subnet routes and all personal
+                - generic [ref=f13e414]:
+                  - generic [ref=f13e415]: "5"
+                  - text: // devices.
+                - generic [ref=f13e416]:
+                  - generic [ref=f13e417]: "6"
+                  - generic [ref=f13e418]: ▾
+                  - text: "{"
+                - generic [ref=f13e419]:
+                  - generic [ref=f13e420]: "7"
+                  - generic [ref=f13e421]: ▾
+                  - text: "\"groups\": {"
+                - generic [ref=f13e422]:
+                  - generic [ref=f13e423]: "8"
+                  - text: "\"group:household\": [\"jessiexizhang@gmail.com\"],"
+                - generic [ref=f13e424]:
+                  - generic [ref=f13e425]: "9"
+                  - text: "},"
+                - generic [ref=f13e426]: "10"
+                - generic [ref=f13e428]:
+                  - generic [ref=f13e429]: "11"
+                  - generic [ref=f13e430]: ▾
+                  - text: "\"hosts\": {"
+                - generic [ref=f13e431]:
+                  - generic [ref=f13e432]: "12"
+                  - text: "\"legion\": \"100.76.213.112\","
+                - generic [ref=f13e433]:
+                  - generic [ref=f13e434]: "13"
+                  - text: "\"mac-mini\": \"100.120.187.105\","
+                - generic [ref=f13e435]:
+                  - generic [ref=f13e436]: "14"
+                  - text: "},"
+                - generic [ref=f13e437]: "15"
+                - generic [ref=f13e439]:
+                  - generic [ref=f13e440]: "16"
+                  - generic [ref=f13e441]: ▾
+                  - text: "\"grants\": ["
+                - generic [ref=f13e442]:
+                  - generic [ref=f13e443]: "17"
+                  - text: "// Owner: everything, including subnet-routed CIDRs and exit nodes."
+                - generic [ref=f13e444]:
+                  - generic [ref=f13e445]: "18"
+                  - generic [ref=f13e446]: ▾
+                  - text: "{"
+                - generic [ref=f13e447]:
+                  - generic [ref=f13e448]: "19"
+                  - text: "\"src\": [\"tedk81@gmail.com\"],"
+                - generic [ref=f13e449]:
+                  - generic [ref=f13e450]: "20"
+                  - text: "\"dst\": [\"*\", \"autogroup:internet\"],"
+                - generic [ref=f13e451]:
+                  - generic [ref=f13e452]: "21"
+                  - text: "\"ip\": [\"*\"],"
+                - generic [ref=f13e453]:
+                  - generic [ref=f13e454]: "22"
+                  - text: "},"
+                - generic [ref=f13e455]: "23"
+                - generic [ref=f13e457]:
+                  - generic [ref=f13e458]: "24"
+                  - text: "// Household: Audiobookshelf on Legion and the Mac mini, nothing else."
+                - generic [ref=f13e459]:
+                  - generic [ref=f13e460]: "25"
+                  - generic [ref=f13e461]: ▾
+                  - text: "{"
+                - generic [ref=f13e462]:
+                  - generic [ref=f13e463]: "26"
+                  - text: "\"src\": [\"group:household\"],"
+                - generic [ref=f13e464]:
+                  - generic [ref=f13e465]: "27"
+                  - text: "\"dst\": [\"legion\", \"mac-mini\"],"
+                - generic [ref=f13e466]:
+                  - generic [ref=f13e467]: "28"
+                  - text: "\"ip\": [\"*\"],"
+                - generic [ref=f13e468]:
+                  - generic [ref=f13e469]: "29"
+                  - text: "},"
+                - generic [ref=f13e470]:
+                  - generic [ref=f13e471]: "30"
+                  - text: "],"
+                - generic [ref=f13e472]: "31"
+                - generic [ref=f13e474]:
+                  - generic [ref=f13e475]: "32"
+                  - generic [ref=f13e476]: ▾
+                  - text: "\"tagOwners\": {"
+                - generic [ref=f13e477]:
+                  - generic [ref=f13e478]: "33"
+                  - text: "\"tag:vpn-gateway\": [\"tedk81@gmail.com\"],"
+                - generic [ref=f13e479]:
+                  - generic [ref=f13e480]: "34"
+                  - text: "},"
+                - generic [ref=f13e481]: "35"
+                - generic [ref=f13e483]:
+                  - generic [ref=f13e484]: "36"
+                  - generic [ref=f13e485]: ▾
+                  - text: "\"autoApprovers\": {"
+                - generic [ref=f13e486]:
+                  - generic [ref=f13e487]: "37"
+                  - generic [ref=f13e488]: ▾
+                  - text: "\"routes\": {"
+                - generic [ref=f13e489]:
+                  - generic [ref=f13e490]: "38"
+                  - text: "\"20.62.0.0/16\": [\"tag:vpn-gateway\"],"
+                - generic [ref=f13e491]:
+                  - generic [ref=f13e492]: "39"
+                  - text: "\"172.16.0.0/16\": [\"tag:vpn-gateway\"],"
+            - generic [ref=f13e234]:
+              - generic [ref=f13e235]:
+                - button [ref=f13e236] [cursor=pointer]:
+                  - heading "Docs" [level=3] [ref=f13e237]
+                - generic [ref=f13e243]:
+                  - paragraph [ref=f13e244]: Learn how to configure your tailnet policy file.
+                  - list [ref=f13e245]:
+                    - listitem [ref=f13e246]:
+                      - link "Syntax reference" [ref=f13e247] [cursor=pointer]:
+                        - /url: https://tailscale.com/kb/1337/acl-syntax
+                    - listitem [ref=f13e248]:
+                      - link "Tags reference" [ref=f13e249] [cursor=pointer]:
+                        - /url: https://tailscale.com/kb/1068/acl-tags#define-a-tag
+                    - listitem [ref=f13e250]:
+                      - link "SSH reference" [ref=f13e251] [cursor=pointer]:
+                        - /url: https://tailscale.com/kb/1193/tailscale-ssh/
+                    - listitem [ref=f13e252]:
+                      - link "Funnel reference" [ref=f13e253] [cursor=pointer]:
+                        - /url: https://tailscale.com/kb/1223/tailscale-funnel
+                    - listitem [ref=f13e254]:
+                      - link "Tests reference" [ref=f13e255] [cursor=pointer]:
+                        - /url: https://tailscale.com/kb/1337/policy-syntax#tests
+                    - listitem [ref=f13e256]:
+                      - link "Examples" [ref=f13e257] [cursor=pointer]:
+                        - /url: https://tailscale.com/kb/1458/grant-examples
+              - generic [ref=f13e258]:
+                - button [ref=f13e259] [cursor=pointer]:
+                  - heading "Tailscale SSH" [level=3] [ref=f13e260]
+                - generic [ref=f13e265]:
+                  - paragraph [ref=f13e266]: SSH into servers using Tailscale & ACLs for authentication and authorization.
+                  - button "Disable Tailscale SSH…" [ref=f13e267] [cursor=pointer]
+              - generic [ref=f13e269]:
+                - button [ref=f13e270] [cursor=pointer]:
+                  - heading "Funnel Beta" [level=3] [ref=f13e271]:
+                    - text: Funnel
+                    - generic [ref=f13e274]: Beta
+                - generic [ref=f13e277]:
+                  - paragraph [ref=f13e278]: Manage which nodes are allowed to accept internet traffic.
+                  - link "Read documentation about Funnel ACLs" [ref=f13e279] [cursor=pointer]:
+                    - /url: https://tailscale.com/kb/1223/tailscale-funnel
+                    - text: Learn more
+                  - button "Add Funnel to policy" [ref=f13e280] [cursor=pointer]
+              - generic [ref=f13e281]:
+                - button [ref=f13e282] [cursor=pointer]:
+                  - heading "GitOps" [level=3] [ref=f13e283]
+                - paragraph [ref=f13e291]:
+                  - text: Manage your policy file using
+                  - link "GitOps for Tailscale ACLs" [ref=f13e292] [cursor=pointer]:
+                    - /url: https://tailscale.com/kb/1204/gitops-acls/
+                  - text: .
+              - generic [ref=f13e293]:
+                - button [ref=f13e294] [cursor=pointer]:
+                  - heading "Convert ACLs to grants" [level=3] [ref=f13e295]
+                - generic [ref=f13e302]:
+                  - paragraph [ref=f13e303]:
+                    - text: Convert deprecated ACL rules to the grant syntax. Changes can be reverted via audit
+                    - link "logs" [ref=f13e304] [cursor=pointer]:
+                      - /url: /admin/logs
+                    - text: .
+                  - link "Read documentation about Grants migration" [ref=f13e305] [cursor=pointer]:
+                    - /url: https://tailscale.com/kb/1542/grants-migration
+                    - text: Learn more
+                  - button "Convert to grants..." [disabled]
+          - generic [ref=f13e306]:
+            - button "Save" [disabled]
+            - button "Discard changes" [disabled]

@@ -1,0 +1,227 @@
+- generic [ref=f13e2]:
+  - generic [ref=f13e7]:
+    - banner [ref=f13e9]:
+      - generic [ref=f13e10]:
+        - link "tedk81@gmail.com’s admin console home" [ref=f13e11] [cursor=pointer]:
+          - /url: /admin
+          - generic [ref=f13e22]: tedk81@gmail.com
+        - generic [ref=f13e23]: Free
+      - navigation "External links" [ref=f13e25]:
+        - button "Help menu" [ref=f13e26] [cursor=pointer]
+        - button "User menu…" [ref=f13e31] [cursor=pointer]
+    - navigation [ref=f13e36]:
+      - link "Machines" [ref=f13e37] [cursor=pointer]:
+        - /url: /admin/machines
+      - link "Apps" [ref=f13e43] [cursor=pointer]:
+        - /url: /admin/apps
+      - link "Services" [ref=f13e50] [cursor=pointer]:
+        - /url: /admin/services
+      - link "Users" [ref=f13e60] [cursor=pointer]:
+        - /url: /admin/users
+      - link "Access controls" [ref=f13e68] [cursor=pointer]:
+        - /url: /admin/acls
+      - link "Logs" [ref=f13e74] [cursor=pointer]:
+        - /url: /admin/logs
+      - link "DNS" [ref=f13e79] [cursor=pointer]:
+        - /url: /admin/dns
+      - link "Settings" [ref=f13e85] [cursor=pointer]:
+        - /url: /admin/settings
+      - link "Resource hub" [ref=f13e91] [cursor=pointer]:
+        - /url: /admin/resource-hub
+  - main [ref=f13e96]:
+    - generic [ref=f13e98]:
+      - generic [ref=f13e100]:
+        - generic [ref=f13e101]:
+          - heading "Access controls" [level=1] [ref=f13e103]
+          - tablist [ref=f13e107]:
+            - tab "Visual editor" [ref=f13e108] [cursor=pointer]
+            - tab "JSON editor" [selected] [ref=f13e109]
+        - paragraph [ref=f13e110]:
+          - text: Control who and which devices are allowed to connect in your network.
+          - link "Read documentation about Access controls" [ref=f13e111] [cursor=pointer]:
+            - /url: https://tailscale.com/kb/1337/policy-syntax
+            - text: Learn more
+      - generic [ref=f13e112]:
+        - generic [ref=f13e113]:
+          - tab "Edit file" [active] [ref=f13e114] [cursor=pointer]
+          - tab "Preview changes" [ref=f13e119] [cursor=pointer]
+          - tab "Preview rules" [ref=f13e124] [cursor=pointer]
+        - generic [ref=f13e129]:
+          - generic [ref=f13e131]:
+            - textbox [ref=f13e132]
+            - generic [ref=f13e140]:
+              - generic [ref=f13e141]:
+                - generic [ref=f13e142]: "1"
+                - text: // Example/default ACLs for unrestricted connections.
+              - generic [ref=f13e143]:
+                - generic [ref=f13e144]: "2"
+                - generic [ref=f13e145]: ▾
+                - text: "{"
+              - generic [ref=f13e146]:
+                - generic [ref=f13e147]: "3"
+                - text: // Declare static groups of users. Use autogroups for all users or users with a specific role.
+              - generic [ref=f13e148]:
+                - generic [ref=f13e149]: "4"
+                - text: "// \"groups\": {"
+              - generic [ref=f13e150]:
+                - generic [ref=f13e151]: "5"
+                - generic [ref=f13e152]: "// \"group:example\": [\"alice@example.com\", \"bob@example.com\"],"
+              - generic [ref=f13e153]:
+                - generic [ref=f13e154]: "6"
+                - text: "// },"
+              - generic [ref=f13e155]: "7"
+              - generic [ref=f13e157]:
+                - generic [ref=f13e158]: "8"
+                - text: // Define the tags which can be applied to devices and by which users.
+              - generic [ref=f13e159]:
+                - generic [ref=f13e160]: "9"
+                - text: "// \"tagOwners\": {"
+              - generic [ref=f13e161]:
+                - generic [ref=f13e162]: "10"
+                - generic [ref=f13e163]: "// \"tag:example\": [\"autogroup:admin\"],"
+              - generic [ref=f13e164]:
+                - generic [ref=f13e165]: "11"
+                - text: "// },"
+              - generic [ref=f13e166]: "12"
+              - generic [ref=f13e168]:
+                - generic [ref=f13e169]: "13"
+                - text: // Define grants that govern access for users, groups, autogroups, tags,
+              - generic [ref=f13e170]:
+                - generic [ref=f13e171]: "14"
+                - text: // Tailscale IP addresses, and subnet ranges.
+              - generic [ref=f13e172]:
+                - generic [ref=f13e173]: "15"
+                - generic [ref=f13e174]: ▾
+                - text: "\"grants\": ["
+              - generic [ref=f13e175]:
+                - generic [ref=f13e176]: "16"
+                - text: // Allow all connections.
+              - generic [ref=f13e177]:
+                - generic [ref=f13e178]: "17"
+                - text: // Comment this section out if you want to define specific restrictions.
+              - generic [ref=f13e179]:
+                - generic [ref=f13e180]: "18"
+                - text: "{\"src\": [\"*\"], \"dst\": [\"*\"], \"ip\": [\"*\"]},"
+              - generic [ref=f13e181]: "19"
+              - generic [ref=f13e183]:
+                - generic [ref=f13e184]: "20"
+                - text: // Allow users in "group:example" to access "tag:example", but only from
+              - generic [ref=f13e185]:
+                - generic [ref=f13e186]: "21"
+                - text: // devices that are running macOS and have enabled Tailscale client auto-updating.
+              - generic [ref=f13e187]:
+                - generic [ref=f13e188]: "22"
+                - text: "// {\"src\": [\"group:example\"], \"dst\": [\"tag:example\"], \"ip\": [\"*\"], \"srcPosture\":[\"posture:autoUpdateMac\"]},"
+              - generic [ref=f13e189]:
+                - generic [ref=f13e190]: "23"
+                - text: "],"
+              - generic [ref=f13e191]: "24"
+              - generic [ref=f13e193]:
+                - generic [ref=f13e194]: "25"
+                - text: // Define postures that will be applied to all rules without any specific
+              - generic [ref=f13e195]:
+                - generic [ref=f13e196]: "26"
+                - text: // srcPosture definition.
+              - generic [ref=f13e197]:
+                - generic [ref=f13e198]: "27"
+                - text: "// \"defaultSrcPosture\": ["
+              - generic [ref=f13e199]:
+                - generic [ref=f13e200]: "28"
+                - text: // "posture:anyMac",
+              - generic [ref=f13e201]:
+                - generic [ref=f13e202]: "29"
+                - text: // ],
+              - generic [ref=f13e203]: "30"
+              - generic [ref=f13e205]:
+                - generic [ref=f13e206]: "31"
+                - text: // Define device posture rules requiring devices to meet
+              - generic [ref=f13e207]:
+                - generic [ref=f13e208]: "32"
+                - text: // certain criteria to access parts of your system.
+              - generic [ref=f13e209]:
+                - generic [ref=f13e210]: "33"
+                - text: "// \"postures\": {"
+              - generic [ref=f13e211]:
+                - generic [ref=f13e212]: "34"
+                - text: // // Require devices running macOS, a stable Tailscale
+              - generic [ref=f13e213]:
+                - generic [ref=f13e214]: "35"
+                - text: // // version and auto update enabled for Tailscale.
+              - generic [ref=f13e215]:
+                - generic [ref=f13e216]: "36"
+                - generic [ref=f13e217]: "// \"posture:autoUpdateMac\": ["
+              - generic [ref=f13e218]:
+                - generic [ref=f13e219]: "37"
+                - generic [ref=f13e220]: // "node:os == 'macos'",
+              - generic [ref=f13e221]:
+                - generic [ref=f13e222]: "38"
+                - generic [ref=f13e223]: // "node:tsReleaseTrack == 'stable'",
+              - generic [ref=f13e224]:
+                - generic [ref=f13e225]: "39"
+                - generic [ref=f13e226]: // "node:tsAutoUpdate",
+          - generic [ref=f13e234]:
+            - generic [ref=f13e235]:
+              - button [ref=f13e236] [cursor=pointer]:
+                - heading "Docs" [level=3] [ref=f13e237]
+              - generic [ref=f13e243]:
+                - paragraph [ref=f13e244]: Learn how to configure your tailnet policy file.
+                - list [ref=f13e245]:
+                  - listitem [ref=f13e246]:
+                    - link "Syntax reference" [ref=f13e247] [cursor=pointer]:
+                      - /url: https://tailscale.com/kb/1337/acl-syntax
+                  - listitem [ref=f13e248]:
+                    - link "Tags reference" [ref=f13e249] [cursor=pointer]:
+                      - /url: https://tailscale.com/kb/1068/acl-tags#define-a-tag
+                  - listitem [ref=f13e250]:
+                    - link "SSH reference" [ref=f13e251] [cursor=pointer]:
+                      - /url: https://tailscale.com/kb/1193/tailscale-ssh/
+                  - listitem [ref=f13e252]:
+                    - link "Funnel reference" [ref=f13e253] [cursor=pointer]:
+                      - /url: https://tailscale.com/kb/1223/tailscale-funnel
+                  - listitem [ref=f13e254]:
+                    - link "Tests reference" [ref=f13e255] [cursor=pointer]:
+                      - /url: https://tailscale.com/kb/1337/policy-syntax#tests
+                  - listitem [ref=f13e256]:
+                    - link "Examples" [ref=f13e257] [cursor=pointer]:
+                      - /url: https://tailscale.com/kb/1458/grant-examples
+            - generic [ref=f13e258]:
+              - button [ref=f13e259] [cursor=pointer]:
+                - heading "Tailscale SSH" [level=3] [ref=f13e260]
+              - generic [ref=f13e265]:
+                - paragraph [ref=f13e266]: SSH into servers using Tailscale & ACLs for authentication and authorization.
+                - button "Disable Tailscale SSH…" [ref=f13e267] [cursor=pointer]
+            - generic [ref=f13e269]:
+              - button [ref=f13e270] [cursor=pointer]:
+                - heading "Funnel Beta" [level=3] [ref=f13e271]:
+                  - text: Funnel
+                  - generic [ref=f13e274]: Beta
+              - generic [ref=f13e277]:
+                - paragraph [ref=f13e278]: Manage which nodes are allowed to accept internet traffic.
+                - link "Read documentation about Funnel ACLs" [ref=f13e279] [cursor=pointer]:
+                  - /url: https://tailscale.com/kb/1223/tailscale-funnel
+                  - text: Learn more
+                - button "Add Funnel to policy" [ref=f13e280] [cursor=pointer]
+            - generic [ref=f13e281]:
+              - button [ref=f13e282] [cursor=pointer]:
+                - heading "GitOps" [level=3] [ref=f13e283]
+              - paragraph [ref=f13e291]:
+                - text: Manage your policy file using
+                - link "GitOps for Tailscale ACLs" [ref=f13e292] [cursor=pointer]:
+                  - /url: https://tailscale.com/kb/1204/gitops-acls/
+                - text: .
+            - generic [ref=f13e293]:
+              - button [ref=f13e294] [cursor=pointer]:
+                - heading "Convert ACLs to grants" [level=3] [ref=f13e295]
+              - generic [ref=f13e302]:
+                - paragraph [ref=f13e303]:
+                  - text: Convert deprecated ACL rules to the grant syntax. Changes can be reverted via audit
+                  - link "logs" [ref=f13e304] [cursor=pointer]:
+                    - /url: /admin/logs
+                  - text: .
+                - link "Read documentation about Grants migration" [ref=f13e305] [cursor=pointer]:
+                  - /url: https://tailscale.com/kb/1542/grants-migration
+                  - text: Learn more
+                - button "Convert to grants..." [disabled]
+        - generic [ref=f13e306]:
+          - button "Save" [disabled]
+          - button "Discard changes" [disabled]

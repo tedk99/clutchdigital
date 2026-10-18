@@ -1,0 +1,159 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - banner:
+          - generic:
+            - link:
+              - /url: /admin
+              - generic: tedk81@gmail.com
+            - generic: Free
+          - navigation:
+            - button
+            - generic:
+              - button
+      - generic:
+        - navigation:
+          - link:
+            - /url: /admin/machines
+            - generic: Machines
+          - link:
+            - /url: /admin/apps
+            - generic: Apps
+          - link:
+            - /url: /admin/services
+            - generic: Services
+          - link:
+            - /url: /admin/users
+            - generic: Users
+          - link:
+            - /url: /admin/acls
+            - generic: Access controls
+          - link:
+            - /url: /admin/logs
+            - generic: Logs
+          - link:
+            - /url: /admin/dns
+            - generic: DNS
+          - link:
+            - /url: /admin/settings
+            - generic: Settings
+          - link:
+            - /url: /admin/resource-hub
+            - generic: Resource hub
+    - main:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - heading [level=1]: Users
+              - paragraph:
+                - text: Manage the users in your network and their permissions.
+                - link:
+                  - /url: https://tailscale.com/kb/1138/user-roles/
+                  - text: Learn more
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]: Invite users
+                        - paragraph: You can invite users by generating an invite link to share with them.
+                        - button:
+                          - generic: Invite external users
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]: Approval is not required
+                        - paragraph: Invited users can join without manual approval from admins.
+                  - link:
+                    - /url: /admin/settings/user-management
+                    - text: Edit in Settings
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - textbox:
+                      - /placeholder: Search users...
+                - generic:
+                  - button:
+                    - generic: Status
+                  - generic:
+                    - button:
+                      - generic: Role
+              - generic:
+                - button
+            - generic: 3 users
+            - table:
+              - rowgroup:
+                - row:
+                  - columnheader: User
+                  - columnheader: Role
+                  - columnheader: Joined
+                  - columnheader: Last seen
+                  - columnheader:
+                    - generic: Users action menu
+              - rowgroup:
+                - row:
+                  - cell:
+                    - generic: "-"
+                    - generic:
+                      - generic:
+                        - generic:
+                          - code: igkWCg…
+                        - generic: Invited
+                  - cell: Member
+                  - cell:
+                    - generic: —
+                  - cell:
+                    - generic: —
+                  - cell:
+                    - generic:
+                      - button [expanded]
+                - row:
+                  - cell:
+                    - generic:
+                      - generic: Jessie Zhang
+                      - generic: jessiexizhang@gmail.com
+                  - cell: Member
+                  - cell:
+                    - generic:
+                      - time: Jul 27, 2026
+                  - cell:
+                    - generic:
+                      - time: 12:16 PM GMT+1
+                  - cell:
+                    - generic:
+                      - button
+                - row:
+                  - cell:
+                    - generic:
+                      - generic: Ted K
+                      - generic: tedk81@gmail.com
+                  - cell: Owner
+                  - cell:
+                    - generic:
+                      - time: May 22, 2025
+                  - cell:
+                    - generic: Connected
+                  - cell:
+                    - generic:
+                      - button
+  - menu "Actions for" [active] [ref=f15e240]:
+    - menuitem [ref=f15e241] [cursor=pointer]:
+      - link "Invited by Ted K" [ref=f15e242]:
+        - /url: /admin/users?q=tedk81%40gmail.com
+        - generic [ref=f15e243]:
+          - generic [ref=f15e244]: Invited by
+          - generic [ref=f15e245]: Ted K
+    - separator [ref=f15e250]
+    - menuitem "Copy invite link" [ref=f15e251] [cursor=pointer]
+    - menuitem "Delete invite" [ref=f15e252] [cursor=pointer]

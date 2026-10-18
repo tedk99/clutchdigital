@@ -1,0 +1,95 @@
+- generic [active] [ref=f15e1]:
+  - generic [ref=f15e253]:
+    - generic [ref=f15e254]: Deleted invite
+    - button [ref=f15e256] [cursor=pointer]
+  - generic [ref=f15e2]:
+    - generic [ref=f15e7]:
+      - banner [ref=f15e9]:
+        - generic [ref=f15e10]:
+          - link "tedk81@gmail.com’s admin console home" [ref=f15e11] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f15e22]: tedk81@gmail.com
+          - generic [ref=f15e23]: Free
+        - navigation "External links" [ref=f15e25]:
+          - button "Help menu" [ref=f15e26] [cursor=pointer]
+          - button "User menu…" [ref=f15e31] [cursor=pointer]
+      - navigation [ref=f15e36]:
+        - link "Machines" [ref=f15e37] [cursor=pointer]:
+          - /url: /admin/machines
+        - link "Apps" [ref=f15e43] [cursor=pointer]:
+          - /url: /admin/apps
+        - link "Services" [ref=f15e50] [cursor=pointer]:
+          - /url: /admin/services
+        - link "Users" [ref=f15e60] [cursor=pointer]:
+          - /url: /admin/users
+        - link "Access controls" [ref=f15e68] [cursor=pointer]:
+          - /url: /admin/acls
+        - link "Logs" [ref=f15e74] [cursor=pointer]:
+          - /url: /admin/logs
+        - link "DNS" [ref=f15e79] [cursor=pointer]:
+          - /url: /admin/dns
+        - link "Settings" [ref=f15e85] [cursor=pointer]:
+          - /url: /admin/settings
+        - link "Resource hub" [ref=f15e91] [cursor=pointer]:
+          - /url: /admin/resource-hub
+    - main [ref=f15e96]:
+      - generic [ref=f15e98]:
+        - generic [ref=f15e100]:
+          - heading "Users" [level=1] [ref=f15e103]
+          - paragraph [ref=f15e104]:
+            - text: Manage the users in your network and their permissions.
+            - link "Read documentation about Users" [ref=f15e105] [cursor=pointer]:
+              - /url: https://tailscale.com/kb/1138/user-roles/
+              - text: Learn more
+        - generic [ref=f15e106]:
+          - generic [ref=f15e271]:
+            - heading "Invite users" [level=3] [ref=f15e272]
+            - paragraph [ref=f15e273]: You can invite users by generating an invite link to share with them.
+            - button "Invite external users" [ref=f15e274] [cursor=pointer]
+          - generic [ref=f15e278]:
+            - generic [ref=f15e285]:
+              - heading "Approval is not required" [level=3] [ref=f15e286]
+              - paragraph [ref=f15e287]: Invited users can join without manual approval from admins.
+            - link "Edit in Settings" [ref=f15e288] [cursor=pointer]:
+              - /url: /admin/settings/user-management
+        - generic [ref=f15e135]:
+          - generic [ref=f15e289]:
+            - generic [ref=f15e290]:
+              - textbox "Search users..." [ref=f15e296]
+              - generic [ref=f15e297]:
+                - button "Status" [ref=f15e298] [cursor=pointer]
+                - button "Role" [ref=f15e304] [cursor=pointer]
+            - button "Export users data" [ref=f15e310] [cursor=pointer]
+          - generic [ref=f15e315]: 2 users
+          - table [ref=f15e316]:
+            - rowgroup [ref=f15e317]:
+              - row [ref=f15e318]:
+                - columnheader "User" [ref=f15e319]
+                - columnheader "Role" [ref=f15e320]
+                - columnheader "Joined" [ref=f15e321]
+                - columnheader "Last seen" [ref=f15e322]
+                - columnheader "Users action menu" [ref=f15e323]
+            - rowgroup [ref=f15e325]:
+              - row [ref=f15e326]:
+                - cell "Jessie Zhang jessiexizhang@gmail.com" [ref=f15e327]:
+                  - generic [ref=f15e331]:
+                    - generic [ref=f15e332]: Jessie Zhang
+                    - generic [ref=f15e334]: jessiexizhang@gmail.com
+                - cell "Member" [ref=f15e335]
+                - cell [ref=f15e336]:
+                  - time [ref=f15e338]: Jul 27, 2026
+                - cell [ref=f15e339]:
+                  - time [ref=f15e341]: 12:16 PM GMT+1
+                - cell [ref=f15e343]:
+                  - button "Actions for Jessie Zhang" [ref=f15e345] [cursor=pointer]
+              - row [ref=f15e350]:
+                - cell "Ted K tedk81@gmail.com" [ref=f15e351]:
+                  - generic [ref=f15e355]:
+                    - generic [ref=f15e356]: Ted K
+                    - generic [ref=f15e358]: tedk81@gmail.com
+                - cell "Owner" [ref=f15e359]
+                - cell [ref=f15e360]:
+                  - time [ref=f15e362]: May 22, 2025
+                - cell [ref=f15e363]
+                - cell [ref=f15e366]:
+                  - button "Actions for Ted K" [ref=f15e368] [cursor=pointer]

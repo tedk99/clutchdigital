@@ -1,0 +1,24 @@
+- main [ref=e2]:
+  - generic [ref=e23]:
+    - textbox "Enter your email..." [active] [ref=e24]
+    - button "Sign in" [ref=e25] [cursor=pointer]
+  - generic [ref=e26]: or
+  - button "Sign in with Google" [ref=e28] [cursor=pointer]
+  - button "Sign in with Microsoft" [ref=e35] [cursor=pointer]
+  - button "Sign in with GitHub" [ref=e42] [cursor=pointer]
+  - button "Sign in with Apple" [ref=e46] [cursor=pointer]
+  - button "Sign in with a passkey" [ref=e52] [cursor=pointer]
+  - paragraph [ref=e59]:
+    - strong [ref=e60]: First time?
+    - text: Learn more at
+    - link "tailscale.com" [ref=e61] [cursor=pointer]:
+      - /url: https://tailscale.com
+    - text: .
+  - paragraph [ref=e63]:
+    - text: By clicking the buttons above, you acknowledge that you have read, understood, and agree to Tailscale’s
+    - link "Terms of Service" [ref=e64] [cursor=pointer]:
+      - /url: https://tailscale.com/terms
+    - text: and
+    - link "Privacy Policy" [ref=e65] [cursor=pointer]:
+      - /url: https://tailscale.com/privacy
+    - text: .
